@@ -11,3 +11,11 @@
 .background-top {
     background: #fef6e6;
 }
+
+.margin-top-15px {
+    margin-top: 15px;
+}
+
+.clear-magin-bottom {
+    margin-bottom: 0px !important;
+}
