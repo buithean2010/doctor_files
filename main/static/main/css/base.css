@@ -1,0 +1,13 @@
+.no-padding {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
+
+.container-with-margin {
+    margin-top: 57px;
+    padding-top: 20px;
+}
+
+.background-top {
+    background: #fef6e6;
+}

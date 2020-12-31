@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+        integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+        crossorigin="anonymous" />
+    <link rel="stylesheet" href="css/style.css" />
+    <style>
+        .search-medication {
+            padding: 35px 40px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background: #fff;
+        }
+
+        .no-padding-right {
+            padding-right: 0px;
+            width: 100%;
+        }
+
+        .magin-top-5px {
+            margin-top: 5px;
+        }
+
+        .padding-5px {
+            padding-left: 5px !important;
+            padding-right: 5px !important;
+        }
+
+        .main_cat_p {
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="#" id="my-scrollBtn" style="display: none;"></a>
+    <!-- Navigation bar -->
+    <div class="row">
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+            <div class="col-md-6 col-xs-12 no-padding">
+                <a class="navbar-brand" href="#">TIẾNG NHẬT Y TẾ</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+                    aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation"
+                    style="float: right;">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+            <div class="col-md-6 col-xs-12 no-padding">
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <ul class="navbar-nav mr-auto">
+                        <!--
+                                        <li class="nav-item active">
+                                            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#">Link</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link disabled" href="#">Disabled</a>
+                                        </li>
+                                        -->
+                    </ul>
+                    <div class="input-group" style="padding-top: 5px;">
+                        <input type="text" class="form-control" placeholder="Triệu chứng bệnh cần tìm...">
+                        <div class="input-group-append">
+                            <button class="btn btn-secondary" type="button">
+                                <i class="fa fa-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <!-- Main body -->
+    <div class="container-fluid container-with-margin background-top">
+        <div class="row">
+            <div class="col-12 col-md-9 left-content">
+                <div class="search-medication">
+                    <div class="row">
+                        <!-- breadcumbs -->
+                        <div class="col-12 col-md-12 padding-5px">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item active" aria-current="page">TOP</li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <!-- Categories -->
+                        <div class="col-12 col-md-12">
+                            <p>Hãy chọn các bộ phận cơ thể để tìm triệu chứng và các bệnh liên quan.</p>
+                            <!-- 体の部位から探す -->
+                            <h4>※BỘ PHẬN CƠ THỂ</h4>
+                            <div class="row">
+                                <div class="col-md-3 col-6 padding-5px magin-top-5px">
+                                    <div class="card border-secondary no-padding-right">
+                                        <div class="card-header text-center" style="width:100%;">ĐẦU-MẶT</div>
+                                        <div class="card-body">
+                                            <img class="card-img-top"
+                                                src="https://prod-df-public.s3.amazonaws.com/uploads/medication_subcategory_master/icon/2/icon_face.png"
+                                                alt="Icon face">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-6 padding-5px magin-top-5px">
+                                    <div class="card border-secondary no-padding-right">
+                                        <div class="card-header text-center" style="width:100%;">MIỆNG</div>
+                                        <div class="card-body">
+                                            <img class="card-img-top"
+                                                src="https://prod-df-public.s3.amazonaws.com/uploads/medication_subcategory_master/icon/6/icon_throat.png"
+                                                alt="Icon throat">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-6 padding-5px magin-top-5px">
+                                    <div class="card border-secondary no-padding-right">
+                                        <div class="card-header text-center" style="width:100%;">THÂN TRÊN</div>
+                                        <div class="card-body">
+                                            <img class="card-img-top"
+                                                src="https://prod-df-public.s3.amazonaws.com/uploads/medication_subcategory_master/icon/12/icon_chest.png"
+                                                alt="Icon chest">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-6 padding-5px magin-top-5px">
+                                    <div class="card border-secondary no-padding-right">
+                                        <div class="card-header text-center" style="width:100%;">THÂN DƯỚI</div>
+                                        <div class="card-body">
+                                            <img class="card-img-top"
+                                                src="https://prod-df-public.s3.amazonaws.com/uploads/medication_subcategory_master/icon/18/icon_waist.png"
+                                                alt="Icon waist">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 体の部位から探す -->
+                            <div class="row magin-top-5px">
+                                <div class="col-md-3 col-6 padding-5px">
+                                    <div class="card text-center border-secondary no-padding-right">
+                                        <div class="card-header" style="width:100%;">TIM</div>
+                                        <div class="card-body">
+                                            <img class="card-img-top"
+                                                src="https://prod-df-public.s3.amazonaws.com/uploads/medication_subcategory_master/icon/29/icon_heart.png"
+                                                alt="Icon heart">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-6 padding-5px">
+                                    <div class="card text-center border-secondary no-padding-right">
+                                        <div class="card-header" style="width:100%;">KHÁC</div>
+                                        <div class=" card-body">
+                                            <img class="card-img-top"
+                                                src="https://prod-df-public.s3.amazonaws.com/uploads/medication_subcategory_master/icon/34/icon_other.png"
+                                                alt="Icon other">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <!-- Categories -->
+                        <div class="col-12 col-md-6 magin-top-5px">
+                            <!-- 体の部位から探す -->
+                            <h4>※GIỚI TÍNH</h4>
+                            <div class="row magin-top-5px">
+                                <div class="col-md-6 col-6 padding-5px">
+                                    <div class="card border-secondary no-padding-right">
+                                        <div class="card-header text-center" style="width:100%;">NAM</div>
+                                        <div class="card-body">
+                                            <img class="card-img-top"
+                                                src="https://prod-df-public.s3.amazonaws.com/uploads/medication_subcategory_master/icon/31/icon_male.png"
+                                                alt="Icon male">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-6 padding-5px">
+                                    <div class="card border-secondary no-padding-right">
+                                        <div class="card-header text-center" style="width:100%;">NỮ </div>
+                                        <div class="card-body">
+                                            <img class="card-img-top"
+                                                src="https://prod-df-public.s3.amazonaws.com/uploads/medication_subcategory_master/icon/30/icon_female.png"
+                                                alt="Icon female">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6 magin-top-5px">
+                            <!-- 体の部位から探す -->
+                            <h4>※ĐỘ TUỔI</h4>
+                            <div class="row magin-top-5px">
+                                <div class="col-md-6 col-6 padding-5px">
+                                    <div class="card border-secondary no-padding-right">
+                                        <div class="card-header text-center" style="width:100%;">TRẺ EM</div>
+                                        <div class="card-body">
+                                            <img class="card-img-top"
+                                                src="https://prod-df-public.s3.amazonaws.com/uploads/medication_subcategory_master/icon/32/icon_child.png"
+                                                alt="Icon child">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-6 padding-5px">
+                                    <div class="card border-secondary no-padding-right">
+                                        <div class="card-header text-center" style="width:100%;">NGƯỜI GIÀ</div>
+                                        <div class="card-body">
+                                            <img class="card-img-top"
+                                                src="https://prod-df-public.s3.amazonaws.com/uploads/medication_subcategory_master/icon/33/icon_old-man.png"
+                                                alt="Icon old man">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-3 right-content">
+            right
+        </div>
+    </div>
+
+</body>
+
+</html>

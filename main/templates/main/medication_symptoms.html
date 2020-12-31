@@ -1,0 +1,70 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block import %}
+<style>
+    .search-medication {
+        padding: 35px 40px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background: #fff;
+    }
+
+    .no-padding-right {
+        padding-right: 0px;
+        width: 100%;
+    }
+
+    .magin-top-5px {
+        margin-top: 5px;
+    }
+
+    .padding-5px {
+        padding-left: 5px !important;
+        padding-right: 5px !important;
+    }
+
+    .main_cat_p {
+        font-weight: bold;
+    }
+</style>
+{% endblock %}
+{% block left_content %}
+<div class="row">
+    <!-- Categories -->
+    <div class="col-12 col-md-12">
+        <p>Hãy chọn các bộ phận cơ thể để tìm triệu chứng và các bệnh liên quan.</p>
+    </div>
+</div>
+<!-- Categories generating start -->
+{% for key, values in categories.items %}
+<div class="row">
+    <div class="col-12 col-md-12">
+        <h4>※{{key}}</h4>
+
+        {% for item in values %}
+        {% if forloop.counter == 1 %}
+        <div class="row">
+            {% endif %}
+            <div class="col-md-3 col-6 padding-5px magin-top-5px">
+                <div class="card border-secondary no-padding-right">
+                    <div class="card-header text-center" style="width:100%;">{{ item.name_vn }}</div>
+                    <div class="card-body">
+                        <img class="card-img-top" src="{{ item.img_url }}" alt="{{ item.name_vn }}">
+                    </div>
+                </div>
+            </div>
+            {% if forloop.counter|mod:4 == 0 %}
+        </div>
+        <div class="row">
+            {% endif %}
+            {% if values|length == forloop.counter %}
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+</div>
+{% endfor %}
+<!-- Categories generating end -->
+
+{% endblock %}
