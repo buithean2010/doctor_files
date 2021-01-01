@@ -2,6 +2,7 @@
     vertical-align: middle !important;
 }
 
+/* will be del begin */
 span.list-item {
     background: url(../img/ico_arrow_blue.svg) no-repeat left center/6px 11px;
     padding-left: 10px;
@@ -20,4 +21,26 @@ span.list-item a:hover {
     color: #666;
     font-size: 20px;
     padding-left: 25px;
+}
+/* will be del end */
+.full-width {
+    width: 100%;
+}
+
+/* override bootstrap default begin */
+.card-body {
+    padding: unset !important;
+}
+/* override bootstrap default end */
+
+.padding-lr-25px {
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+div.div-list-item {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+    padding-top: 15px;
+    padding-bottom: 5px;
 }

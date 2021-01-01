@@ -15,14 +15,14 @@ class PartSymptomsView(BaseView):
 
     def set_context(self):
         try:
-            part_id = int(self.request_params['part_id'])
+            cat_id = int(self.request_params['cat_id'])
         except:
-            part_id = 1
+            cat_id = 1
 
-        symptoms = get_symptoms_by_part_id(part_id)
+        symptoms = get_parts_symptoms_by_subcategory1(cat_id)
 
         context = {
-            'title': f'TIẾNG NHẬT Y TẾ | CÁC TRIỆU CHỨNG BỆNH LIÊN QUAN ĐẾN VÙNG {symptoms.first().part.name_vn} TRONG TIẾNG NHẬT',
+            'title': f'TIẾNG NHẬT Y TẾ | CÁC TRIỆU CHỨNG BỆNH LIÊN QUAN ĐẾN VÙNG {symptoms[-1]} TRONG TIẾNG NHẬT',
             'symptoms': symptoms,
         }
 

@@ -8,7 +8,7 @@
 {% block left_content %}
 <!-- Introduction -->
 <div class="row">
-    <div class="col-12 col-md-9">
+    <div class="col-12 col-md-9 no-padding">
         <table class="table table-bordered table-hover">
             <colgroup>
                 <col style="width: 90px;">
@@ -31,77 +31,39 @@
 </div>
 <div class="row">
     <!-- Categories -->
-    <div class="col-12 col-md-12">
+    <div class="col-12 col-md-12 no-padding">
         <p>Hãy chọn một triệu chứng mà bạn gặp phải và tìm hiểu thêm về các bệnh có liên quan đến triệu chứng đó</p>
     </div>
 </div>
 <!-- Symptoms by part -->
-<div id="accordion">
-
-    <div class="card">
+{% for key, values in symptoms.items %}
+{% if key > 0 and key < 3%}
+<div id="accordion" class="row">
+    <div class="card full-width">
         <div class="card-header">
-            <a class="card-link" data-toggle="collapse" href="#collapseOne">
-                <h3 class="symptom-group"
-                    style="background: url(https://prod-df-public.s3.amazonaws.com/uploads/medication_subcategory_master/icon/2/icon_face.png) no-repeat left center/20px 20px">
-                    <strong>頭</strong>
+            <a class="card-link" data-toggle="collapse" href="#collapse_accordion_{{forloop.counter}}">
+                {% with values.all|first as obj %}
+                <h3 class="symptom-group" style="background: url({{obj.part.img_url}}) no-repeat left center/20px 20px">
+                    <strong>{{obj.part.name_vn}}</strong>
                 </h3>
+                {% endwith %}
             </a>
         </div>
-        <div id="collapseOne" class="collapse show" data-parent="#accordion">
+        <div id="collapse_accordion_{{forloop.counter}}" class="collapse {% if forloop.counter == 1 %}show{% endif %}"
+            data-parent="#accordion">
             <div class="card-body">
-                Lorem ipsum..
+                <div class="row padding-lr-25px">
+                    {% for item in values %}
+                    <div class="col-md-3 col-6 div-list-item"><span class="list-item"><a
+                                href="#">{{item.name_vn}}</a></span></div>
+                    {% endfor %}
+                </div>
             </div>
         </div>
     </div>
-
-    <div class="card">
-        <div class="card-header">
-            <a class="collapsed card-link" data-toggle="collapse" href="#collapseTwo">
-                Collapsible Group Item #2
-            </a>
-        </div>
-        <div id="collapseTwo" class="collapse" data-parent="#accordion">
-            <div class="card-body">
-                Lorem ipsum..
-            </div>
-        </div>
-    </div>
-
-    <div class="card">
-        <div class="card-header">
-            <a class="collapsed card-link" data-toggle="collapse" href="#collapseThree">
-                Collapsible Group Item #3
-            </a>
-        </div>
-        <div id="collapseThree" class="collapse" data-parent="#accordion">
-            <div class="card-body">
-                Lorem ipsum..
-            </div>
-        </div>
-    </div>
-
 </div>
-<di class="row">
-    <div class="col-md-2 col-3">
-        <h3>
-            <strong>頭</strong>
-            <img
-                src="https://prod-df-public.s3.amazonaws.com/uploads/medication_subcategory_master/icon/2/icon_face.png">
-        </h3>
-
-    </div>
-    <div class="col-md-10 col-9 list-item-right">
-
-        <div class="row">
-            <div class="col-md-3 col-6"><span class="list-item"><a href="#">立ちくらみ</a></span></div>
-            <div class="col-md-3 col-6"><span class="list-item"><a href="#">立ちくらみ</a></span></div>
-            <div class="col-md-3 col-6"><span class="list-item"><a href="#">立ちくらみ</a></span></div>
-            <div class="col-md-3 col-6"><span class="list-item"><a href="#">立ちくらみ</a></span></div>
-            <div class="col-md-3 col-6"><span class="list-item"><a href="#">立ちくらみ</a></span></div>
-            <div class="col-md-3 col-6"><span class="list-item"><a href="#">立ちくらみ</a></span></div>
-        </div>
-    </div>
-</di>
+{% endif %}
+{% endfor %}
 {% endblock %}
 
 {% block right_content %}
