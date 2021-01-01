@@ -3,6 +3,7 @@
 {% load static %}
 {% block import %}
 <link rel="stylesheet" type="text/css" href="{% static 'main/css/symptom_category.css' %}" />
+<script src="{% static 'common/js/awesome-all.min.js' %}"></script>
 {% endblock %}
 
 {% block left_content %}
@@ -13,34 +14,48 @@
     </div>
 </div>
 <!-- Categories generating start -->
-{% for key, values in categories.items %}
-<div class="row">
-    <div class="col-12 col-md-12">
-        <h4 class="margin-top-15px clear-magin-bottom">※{{key}}</h4>
-
-        {% for item in values %}
-        {% if forloop.counter == 1 %}
-        <div class="row">
-            {% endif %}
-            <div class="col-md-3 col-6 padding-5px magin-top-5px">
-                <div class="card border-secondary no-padding-right">
-                    <div class="card-header text-center" style="width:100%;">{{ item.name_vn }}</div>
-                    <div class="card-body">
-                        <img class="card-img-top" src="{{ item.img_url }}" alt="{{ item.name_vn }}">
+<div id="accordion" class="row">
+    {% for key, values in categories.items %}
+    <div class="card full-width">
+        <div class="card-header">
+            <a class="card-link" data-toggle="collapse" href="#collapse_accordion_{{forloop.counter}}">
+                <h4 class="clear-magin-bottom text-success"><i class="fas fa-angle-double-right"></i> {{key}}</h4>
+            </a>
+        </div>
+        <div id="collapse_accordion_{{forloop.counter}}" class="collapse {% if forloop.counter == 1 %}show{% endif %}"
+            data-parent="#accordion">
+            <div class="card-body">
+                {% for item in values %}
+                {% if forloop.counter == 1 %}
+                <div class="row">
+                    {% endif %}
+                    <div class="col-md-3 col-6 padding-5px magin-top-5px">
+                        <div class="card border-secondary no-padding-right">
+                            <div class="card-header text-center" style="width:100%;">
+                                <a href="{% url 'part_symptoms' item.id %}" class="normal-link">
+                                    {{ item.name_vn }}
+                                </a>
+                            </div>
+                            <div class="card-body">
+                                <a href="{% url 'part_symptoms' item.id %}">
+                                    <img class="card-img-top" src="{{ item.img_url }}" alt="{{ item.name_vn }}">
+                                </a>
+                            </div>
+                        </div>
                     </div>
+                    {% if forloop.counter|mod:4 == 0 %}
                 </div>
+                <div class="row">
+                    {% endif %}
+                    {% if values|length == forloop.counter %}
+                </div>
+                {% endif %}
+                {% endfor %}
             </div>
-            {% if forloop.counter|mod:4 == 0 %}
         </div>
-        <div class="row">
-            {% endif %}
-            {% if values|length == forloop.counter %}
-        </div>
-        {% endif %}
-        {% endfor %}
     </div>
+    {% endfor %}
 </div>
-{% endfor %}
 <!-- Categories generating end -->
 
 {% endblock %}

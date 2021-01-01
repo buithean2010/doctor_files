@@ -12,6 +12,19 @@
     padding-right: 5px !important;
 }
 
-.main_cat_p {
-    font-weight: bold;
+.full-width {
+    width: 100%;
+}
+
+.card-link h4:hover {
+    color: #17a2b8 !important;
+}
+
+a.normal-link {
+    color: black;
+}
+
+a.normal-link:hover {
+    text-decoration: none;
+    color: #58b677;
 }
