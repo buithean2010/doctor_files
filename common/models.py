@@ -30,3 +30,33 @@ class SubCategories1(models.Model):
     class Meta:
         managed = False
         db_table = 'sub_categories_1'
+
+
+class SubCategories2(models.Model):
+    sub_categories_1 = models.ForeignKey(SubCategories1, models.DO_NOTHING)
+    name_vn = models.CharField(max_length=512)
+    name_kanji = models.CharField(max_length=512)
+    name_kana = models.CharField(max_length=512)
+    name_en = models.CharField(max_length=512)
+    img_url = models.TextField()
+    sort_no = models.IntegerField(blank=True, null=True)
+    create_date = models.DateTimeField()
+    update_date = models.DateTimeField()
+
+    class Meta:
+        managed = False
+        db_table = 'sub_categories_2'
+
+
+class PartSymptoms(models.Model):
+    part = models.ForeignKey('SubCategories2', models.DO_NOTHING)
+    name_vn = models.CharField(max_length=512)
+    name_kanji = models.CharField(max_length=512)
+    name_kana = models.CharField(max_length=512)
+    name_en = models.CharField(max_length=512)
+    create_date = models.DateTimeField()
+    update_date = models.DateTimeField()
+
+    class Meta:
+        managed = False
+        db_table = 'part_symptoms'

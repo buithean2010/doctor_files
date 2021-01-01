@@ -16,5 +16,7 @@ class SymptomCategoryView(BaseView):
     def set_context(self):
         context = {
             'categories': get_all_categories(),
+            'title': 'TIẾNG NHẬT Y TẾ',
         }
+
         return context

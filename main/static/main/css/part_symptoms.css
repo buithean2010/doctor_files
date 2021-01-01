@@ -1,0 +1,23 @@
+.table-icon {
+    vertical-align: middle !important;
+}
+
+span.list-item {
+    background: url(../img/ico_arrow_blue.svg) no-repeat left center/6px 11px;
+    padding-left: 10px;
+}
+
+span.list-item a {
+    color: black;
+}
+
+span.list-item a:hover {
+    color: #58b677;
+    text-decoration: none;
+}
+
+.symptom-group {
+    color: #666;
+    font-size: 20px;
+    padding-left: 25px;
+}

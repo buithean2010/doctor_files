@@ -1,3 +1,10 @@
+.search-medication {
+    padding: 35px 40px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background: #fff;
+}
+
 .no-padding {
     padding-left: 0px !important;
     padding-right: 0px !important;
@@ -9,7 +16,8 @@
 }
 
 .background-top {
-    background: #fef6e6;
+    /*background: #fef6e6;*/
+    background: #e9efd9;
 }
 
 .margin-top-15px {

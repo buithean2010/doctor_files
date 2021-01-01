@@ -6,8 +6,10 @@ class BaseView(View):
     def __init__(self, tpl_name):
         self.template_name = tpl_name
         self.context = {}
+        self.request_params = {}
 
     def get(self, request, *args, **kwargs):
+        self.request_params = kwargs
         self.context = self.set_context()
         return render(request, self.template_name, self.context)
 
